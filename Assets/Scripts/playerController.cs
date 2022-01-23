@@ -5,58 +5,39 @@ using UnityEngine.Events;
 
 public class playerController : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public float movementSpeed = 4;
+    private Rigidbody2D _rigidbody;
     private SpriteRenderer _renderer;
-   // bool isGrounded;
-  //  [SerializeField] Transform groundCheck;
-    [SerializeField] private float runSpeed = 3f;
-    [SerializeField] private float jumpSpeed = 5f;
-
+    public float jumpForce = 5;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
+
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-      //  if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))         
-        {
-       //     isGrounded = true;
-        }
-      // else { isGrounded = false; }
+        var movement = Input.GetAxis("Horizontal"); 
+        transform.position += new Vector3(movement,0,0) * Time.deltaTime * movementSpeed;
 
-        if (Input.GetKey("d") || Input.GetKey("right"))
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
-            rb.velocity = new Vector2(runSpeed, rb.velocity.y);
-            _renderer.flipX = false;
-           
-                //animator.play("name for run") 
-       }
-        else if (Input.GetKey("a") || Input.GetKey("left"))
+            _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
+        
+
+        Vector3 characterScale = transform.localScale;
+        if(Input.GetAxis("Horizontal") < 0)
         {
-            rb.velocity = new Vector2(-runSpeed, rb.velocity.y);
             _renderer.flipX = true;
- // if (isGrounded)
-            {
-                //animator.play("name for run")
-            }
         }
-        else
+        if (Input.GetAxis("Horizontal") > 0)
         {
-           
-            rb.velocity = new Vector2(0, rb.velocity.y);
-      //     if (isGrounded) { }
-            //animator.play("name for idle")
+            _renderer.flipX = false;
         }
-
-        if (Input.GetKey("space")) //+ && isGrounded) //keydown wont let her jump wtf 
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-            Debug.Log("jummmp");
-            //animator.play("name for jump")
-        }
+        transform.localScale = characterScale;
     }
 
 }
