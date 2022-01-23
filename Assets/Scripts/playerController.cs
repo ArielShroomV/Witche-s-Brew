@@ -5,10 +5,13 @@ using UnityEngine.Events;
 
 public class playerController : MonoBehaviour
 {
-    public float movementSpeed;
     private Rigidbody2D rb;
-    public float jumpForce;
     private SpriteRenderer _renderer;
+   // bool isGrounded;
+  //  [SerializeField] Transform groundCheck;
+    [SerializeField] private float runSpeed = 3f;
+    [SerializeField] private float jumpSpeed = 5f;
+
 
     private void Start()
     {
@@ -16,24 +19,44 @@ public class playerController : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        var movement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
-
-        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) < 0.001f)
+      //  if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))         
         {
-            rb.AddForce(new Vector2(0, jumpForce));
-            Debug.Log("jummmppp");
+       //     isGrounded = true;
+        }
+      // else { isGrounded = false; }
+
+        if (Input.GetKey("d") || Input.GetKey("right"))
+        {
+            rb.velocity = new Vector2(runSpeed, rb.velocity.y);
+            _renderer.flipX = false;
+           
+                //animator.play("name for run") 
+       }
+        else if (Input.GetKey("a") || Input.GetKey("left"))
+        {
+            rb.velocity = new Vector2(-runSpeed, rb.velocity.y);
+            _renderer.flipX = true;
+ // if (isGrounded)
+            {
+                //animator.play("name for run")
+            }
+        }
+        else
+        {
+           
+            rb.velocity = new Vector2(0, rb.velocity.y);
+      //     if (isGrounded) { }
+            //animator.play("name for idle")
         }
 
-       if (Input.GetAxisRaw("Horizontal") > 0)
+        if (Input.GetKey("space")) //+ && isGrounded) //keydown wont let her jump wtf 
         {
-             _renderer.flipX = false;
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-               _renderer.flipX = true;
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            Debug.Log("jummmp");
+            //animator.play("name for jump")
         }
     }
+
 }
