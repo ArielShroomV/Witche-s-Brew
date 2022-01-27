@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    public void LoadScene(string level1)
+    public void LoadScene(string Story)
 
     {
-        SceneManager.LoadScene(level1); 
+        SceneManager.LoadScene(Story); 
     }
 }
