@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1044834409116121849}
   m_Layer: 0
   m_Name: Witch
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 4
   jumpForce: 5
+  currentHp: 0
 --- !u!50 &1044834409116121855
 Rigidbody2D:
   serializedVersion: 4

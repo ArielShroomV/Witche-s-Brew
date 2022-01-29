@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour
     private SpriteRenderer _renderer;
     public float jumpForce = 5;
     Animator anim;
+    [SerializeField] int currentHp;
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -27,7 +28,7 @@ public class playerController : MonoBehaviour
         Jump();
         Vector3 characterScale = transform.localScale;
         transform.localScale = characterScale;
-
+       // Die();
     }
     private void Jump()
     {
@@ -64,6 +65,18 @@ public class playerController : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
     }
+    public void TakeDamage(int howmuch)
+    {
+        currentHp -= howmuch;
+        Debug.Log($"{name} is hurt " + "HP is " + currentHp);
 
+    }
+    //public void Die()
+    //{
+    //    if (currentHp <= 0)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
 }
