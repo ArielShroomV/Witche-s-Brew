@@ -9,4 +9,4 @@ public class Sounds : MonoBehaviour
     {
         start.Play();
     }
-}
+} 

@@ -11,17 +11,25 @@ public class playerController : MonoBehaviour
     private SpriteRenderer _renderer;
     public float jumpForce = 5;
     Animator anim;
+    [SerializeField] int maxHealth = 10;
     [SerializeField] int currentHp;
+    public HealthBar healthBar;
     private void Start()
     {
+        currentHp = maxHealth;
         _rigidbody = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        healthBar.SetMaxHealth(maxHealth);
 
     }
 
     private void Update()
-    {
+    { // if (Input.GetKeyDown(KeyCode.Space))
+     //   {
+
+     //       TakeDamage(2);
+     //   }
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
         Walk();
@@ -68,6 +76,7 @@ public class playerController : MonoBehaviour
     public void TakeDamage(int howmuch)
     {
         currentHp -= howmuch;
+        healthBar.SetHealth(currentHp);
         Debug.Log($"{name} is hurt " + "HP is " + currentHp);
 
     }
