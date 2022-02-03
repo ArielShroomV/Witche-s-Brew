@@ -9,7 +9,9 @@ public class ResizeWitch : MonoBehaviour
     public void ScaleWitch()
     {if (transform.localScale.x > 1)
         {
+            Debug.Log("im small");
             transform.localScale = transform.localScale - new Vector3(scale, scale);
+            
         }
         
 

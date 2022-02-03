@@ -817,6 +817,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1719133839, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
+      propertyPath: scale
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1044834409116121845, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
       propertyPath: m_Name
       value: Witch
