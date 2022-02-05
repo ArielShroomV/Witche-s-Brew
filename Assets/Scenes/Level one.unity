@@ -7985,7 +7985,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -15, y: -6, z: 0}
   m_Size: {x: 57, y: 7, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.45, z: 0}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -10907,6 +10907,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1044834409116121854, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 754400039}
     - target: {fileID: 3103925789597713983, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

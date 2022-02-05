@@ -22,7 +22,7 @@ public class cameraController : MonoBehaviour
     {
         transform.position = Player.transform.position + offset;
 
-        transform.position = new Vector3 (
+        transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
             Mathf.Clamp(transform.position.y, bottomLimit, topLimit),
             transform.position.z
@@ -31,10 +31,10 @@ public class cameraController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector2(leftLimit, topLimit), new Vector2(rightLimit,topLimit));
-        Gizmos.DrawLine(new Vector2(rightLimit, topLimit), new Vector2(rightLimit,bottomLimit));
-        Gizmos.DrawLine(new Vector2(leftLimit, topLimit), new Vector2(leftLimit,bottomLimit));
-        Gizmos.DrawLine(new Vector2(rightLimit, bottomLimit), new Vector2(leftLimit,bottomLimit));
+        Gizmos.DrawLine(new Vector2(leftLimit, topLimit), new Vector2(rightLimit, topLimit));
+        Gizmos.DrawLine(new Vector2(rightLimit, topLimit), new Vector2(rightLimit, bottomLimit));
+        Gizmos.DrawLine(new Vector2(leftLimit, topLimit), new Vector2(leftLimit, bottomLimit));
+        Gizmos.DrawLine(new Vector2(rightLimit, bottomLimit), new Vector2(leftLimit, bottomLimit));
     }
 
 }

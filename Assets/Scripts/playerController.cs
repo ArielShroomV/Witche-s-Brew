@@ -9,11 +9,13 @@ public class playerController : MonoBehaviour
     public float movementSpeed = 4;
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _renderer;
-    public float jumpForce = 5;
+    public float jumpForce = 6;
     Animator anim;
     [SerializeField] int maxHealth = 10;
     [SerializeField] int currentHp;
     public HealthBar healthBar;
+    bool isGrounded;
+    public GameObject player;
     private void Start()
     {
         currentHp = maxHealth;
@@ -26,17 +28,26 @@ public class playerController : MonoBehaviour
 
     private void Update()
     { // if (Input.GetKeyDown(KeyCode.Space))
-     //   {
+      //   {
 
-     //       TakeDamage(2);
-     //   }
+        //       TakeDamage(2);
+        //   }
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
         Walk();
         Jump();
         Vector3 characterScale = transform.localScale;
         transform.localScale = characterScale;
-       // Die();
+        // Die();
+
+        if (transform.localScale.x < 1)
+        {
+            jumpForce = 5;
+        }
+        else
+        {
+            jumpForce = 6;
+        }
     }
     private void Jump()
     {
@@ -47,11 +58,26 @@ public class playerController : MonoBehaviour
         if (_rigidbody.velocity.y != 0)
         {
             anim.SetBool("isJumping", true);
+            isGrounded = false;
         }
         else
         {
             anim.SetBool("isJumping", false);
+            isGrounded = true;
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            isGrounded = true;
+            anim.SetBool("isJumping", false);
+            player.transform.parent = collision.gameObject.transform;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        player.transform.parent = null;
     }
 
     private void Walk()
@@ -80,6 +106,7 @@ public class playerController : MonoBehaviour
         Debug.Log($"{name} is hurt " + "HP is " + currentHp);
 
     }
+
     //public void Die()
     //{
     //    if (currentHp <= 0)
