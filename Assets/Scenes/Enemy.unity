@@ -435,7 +435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898211518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4534616, y: -3.5, z: 0}
+  m_LocalPosition: {x: 2.61, y: -3.75, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 954305886}
@@ -458,6 +458,11 @@ MonoBehaviour:
   fireball: {fileID: 3749027920950025141, guid: 0cbbc77788c09104db0dba18a5ada1e5, type: 3}
   mouth: {fileID: 954305886}
   projectile: {fileID: 3749027920950025141, guid: 0cbbc77788c09104db0dba18a5ada1e5, type: 3}
+  speed: 2
+  positions:
+  - {x: 11.28, y: -3.69, z: 0}
+  - {x: 2.61, y: -3.69, z: 0}
+  playerCharacter: {fileID: 999662594}
 --- !u!1 &904043595
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +642,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1719133839, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
   m_PrefabInstance: {fileID: 3103925788767308215}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1930869421}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fefb7e53bf583345a6f82714133f4d7, type: 3}
@@ -866,6 +871,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1930869421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1044834409116121845, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
+  m_PrefabInstance: {fileID: 3103925788767308215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2037560409
 GameObject:
   m_ObjectHideFlags: 3
@@ -1019,6 +1029,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1044834409116121854, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1930869421}
     - target: {fileID: 3103925789597713983, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
