@@ -16,7 +16,7 @@ TagManager:
   - Water
   - UI
   - forward
-  - 
+  - Player
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2412436461
     locked: 0
