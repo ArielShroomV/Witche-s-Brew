@@ -42,7 +42,15 @@ public class Dragon : MonoBehaviour
                 index++;
             }
         }
-        
+        // maybe only when follow? 
+        if(transform.position.x - playerCharacter.position.x > 0f)
+        {
+            transform.rotation = new Quaternion(Quaternion.identity.x, -180, Quaternion.identity.z, Quaternion.identity.w);
+        }
+        else
+        {
+            transform.rotation = new Quaternion(Quaternion.identity.x, 0, Quaternion.identity.z, Quaternion.identity.w);
+        }
     }
     public void StopAttack()
     {
