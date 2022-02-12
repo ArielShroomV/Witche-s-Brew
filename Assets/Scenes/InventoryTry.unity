@@ -848,8 +848,8 @@ RectTransform:
   m_Children:
   - {fileID: 1237058264}
   - {fileID: 1607981638}
-  - {fileID: 614201648}
   - {fileID: 1909032460}
+  - {fileID: 614201648}
   - {fileID: 1115335862}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2859,6 +2859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1759786435}
   canvasItems: {fileID: 76465214}
+  anim: {fileID: 0}
 --- !u!114 &1237058267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3357,7 +3358,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 0.012991999}
   m_Children: []
   m_Father: {fileID: 1096906679}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3816,6 +3817,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9fc42641736204ebfb1b709739aac7, type: 3}
+--- !u!1001 &834045914802670260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101960, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101964, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: m_Name
+      value: Cauldron sprite button
+      objectReference: {fileID: 0}
+    - target: {fileID: 834045915075101966, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1759786435}
+    - target: {fileID: 834045915075101966, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
+      propertyPath: canvasItems
+      value: 
+      objectReference: {fileID: 76465214}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b3350d7ccbb0e354b8e31927609a632a, type: 3}
 --- !u!1001 &2389600118460463343
 PrefabInstance:
   m_ObjectHideFlags: 0
