@@ -31,16 +31,17 @@ public class Dragon : MonoBehaviour
         set
         {
             _dragonState = value;
-            if (value != _dragonState)
-                switch (_dragonState)
-                {
-                    case DragonState.patrol:
-                        StartCoroutine(Patrol());
-                        break;
-                    case DragonState.attack:
-                        StartCoroutine(Attack());
-                        break;
-                }
+            switch (_dragonState)
+            {
+                case DragonState.patrol:
+                    StopCoroutine(Attack());
+                    StartCoroutine(Patrol());
+                    break;
+                case DragonState.attack:
+                    StopCoroutine(Patrol());
+                    StartCoroutine(Attack());
+                    break;
+            }
         }
         get
         {
@@ -53,7 +54,6 @@ public class Dragon : MonoBehaviour
     {
         this.spriteRenderer = this.GetComponent<SpriteRenderer>();
         transform.position = positions[index];
-        StartCoroutine(Patrol());
     }
 
 
@@ -96,7 +96,6 @@ public class Dragon : MonoBehaviour
             StopAttack();
             yield return new WaitForSeconds(timeBetweenShoot);
         }
-       
     }
 
     IEnumerator Patrol()
@@ -127,6 +126,5 @@ public class Dragon : MonoBehaviour
             }
             yield return null;
         }
-        
     }
 }
