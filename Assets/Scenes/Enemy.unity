@@ -496,7 +496,7 @@ MonoBehaviour:
   - {x: 11.28, y: -3.69, z: 0}
   - {x: 2.61, y: -3.69, z: 0}
   speed: 2
-  attackRange: 3
+  attackRange: 5
   timeBetweenShoot: 2
 --- !u!1 &904043595
 GameObject:
@@ -1180,6 +1180,10 @@ PrefabInstance:
     - target: {fileID: 9078664562179729049, guid: cbd9c88a25f667447b0d741c679d6c1d, type: 3}
       propertyPath: m_Name
       value: Potion button
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078664562179729049, guid: cbd9c88a25f667447b0d741c679d6c1d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9078664562498897407, guid: cbd9c88a25f667447b0d741c679d6c1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

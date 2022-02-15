@@ -27,18 +27,14 @@ public class playerController : MonoBehaviour
     }
 
     private void Update()
-    { // if (Input.GetKeyDown(KeyCode.Space))
-      //   {
-
-        //       TakeDamage(2);
-        //   }
+    { 
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
         Walk();
         Jump();
         Vector3 characterScale = transform.localScale;
         transform.localScale = characterScale;
-        // Die();
+         
 
         if (transform.localScale.x < 1)
         {
@@ -48,6 +44,7 @@ public class playerController : MonoBehaviour
         {
             jumpForce = 6;
         }
+        Die();
     }
     private void Jump()
     {
@@ -107,12 +104,12 @@ public class playerController : MonoBehaviour
 
     }
 
-    //public void Die()
-    //{
-    //    if (currentHp <= 0)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    public void Die()
+    {
+        if (currentHp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }
