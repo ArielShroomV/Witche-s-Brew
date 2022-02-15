@@ -487,15 +487,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98ea1699ad48de4fac2edc1c6d2387a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 999662594}
   animator: {fileID: 898211519}
   fireball: {fileID: 3749027920950025141, guid: 0cbbc77788c09104db0dba18a5ada1e5, type: 3}
   mouth: {fileID: 954305886}
   projectile: {fileID: 3749027920950025141, guid: 0cbbc77788c09104db0dba18a5ada1e5, type: 3}
-  speed: 2
   positions:
   - {x: 11.28, y: -3.69, z: 0}
   - {x: 2.61, y: -3.69, z: 0}
-  playerCharacter: {fileID: 999662594}
+  speed: 2
+  attackRange: 3
+  timeBetweenShoot: 2
 --- !u!1 &904043595
 GameObject:
   m_ObjectHideFlags: 0

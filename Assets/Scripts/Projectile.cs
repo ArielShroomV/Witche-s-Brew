@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 10;
     private Vector2 direction;
     [SerializeField] private string targetTag;
 
+    Vector3 target;
 
-   
+    private void Start()
+    {
+        target = new Vector3(FindObjectOfType<playerController>().transform.position.x, transform.position.y, 0);
+    }
+
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
-    }
-    public void Setup(Vector2 direction)
-    {
-        this.direction = direction;
-        
+        transform.position = Vector3.Lerp(transform.position, target, speed * Time.deltaTime);
+        if(Vector2.Distance(transform.position, target) <= 0.2)
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+            Destroy(gameObject);
     }
 }
