@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   canvasItems: {fileID: 0}
+  potionButton: {fileID: 0}
 --- !u!95 &834045915075101965
 Animator:
   serializedVersion: 3
