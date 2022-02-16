@@ -14,7 +14,6 @@ public class playerController : MonoBehaviour
     [SerializeField] int maxHealth = 10;
     [SerializeField] int currentHp;
     public HealthBar healthBar;
-    bool isGrounded;
     public GameObject player;
     private void Start()
     {
@@ -27,14 +26,14 @@ public class playerController : MonoBehaviour
     }
 
     private void Update()
-    { 
+    {
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
         Walk();
         Jump();
         Vector3 characterScale = transform.localScale;
         transform.localScale = characterScale;
-         
+
 
         if (transform.localScale.x < 1)
         {
@@ -55,19 +54,16 @@ public class playerController : MonoBehaviour
         if (_rigidbody.velocity.y != 0)
         {
             anim.SetBool("isJumping", true);
-            isGrounded = false;
         }
         else
         {
             anim.SetBool("isJumping", false);
-            isGrounded = true;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            isGrounded = true;
             anim.SetBool("isJumping", false);
             player.transform.parent = collision.gameObject.transform;
         }
