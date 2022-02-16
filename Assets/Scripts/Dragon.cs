@@ -54,6 +54,7 @@ public class Dragon : MonoBehaviour
     {
         this.spriteRenderer = this.GetComponent<SpriteRenderer>();
         transform.position = positions[index];
+        StartCoroutine(Patrol());
     }
 
 
@@ -80,6 +81,7 @@ public class Dragon : MonoBehaviour
 
     IEnumerator Attack()
     {
+        
         while (dragonState == DragonState.attack)
         {
             if (transform.position.x - playerCharacter.position.x > 0f)
@@ -99,7 +101,7 @@ public class Dragon : MonoBehaviour
     }
 
     IEnumerator Patrol()
-    {
+     {
         while (dragonState == DragonState.patrol)
         {
             transform.position = Vector2.MoveTowards(transform.position, positions[index], Time.deltaTime * speed);
