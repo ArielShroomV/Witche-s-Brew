@@ -11,56 +11,22 @@ public class ButtonCauldron : MonoBehaviour
     public GameObject Cauldron;
     bool isClicked;
     BoxCollider2D boxCollider;
-
+    
 
     void Start()
     {
-
+       potionButton.SetActive(false);
         anim = GetComponent<Animator>();
-        
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    void Update()
+    public void RemoveItems(Inventory inventory)
     {
-
-        Click();
-
-    }
-    private void Click()
-    {
-        if (isClicked == true && Input.GetMouseButtonDown(0))
+        foreach (var item in inventory.slots)
         {
-
-            if (CheckFull())
-            {
-                Debug.Log("potion made yayyy");
-                // remove the canvas items of ingredients 
-                canvasItems.SetActive(false);
-                //animation
-                anim.SetBool("isMaking", true);
-                //  instant to make other button appear 
-                Instantiate(potionButton);
-                //stop using on click!! :( won't let click on potion
-               
-            }
-            else
-            {
-                Debug.Log("not ready to use");
-            }
-
+            Destroy(canvasItems);
+            Destroy(item);
         }
-    }
-    bool CheckFull()
-    {
-        foreach (var item in inventory.isFull)
-        {
-            if (item == false)
-            {
-                return false;
-            }
-        }
-        return true;
     }
     private void OnMouseDown()
     {
@@ -71,12 +37,23 @@ public class ButtonCauldron : MonoBehaviour
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
             isClicked = true;
-        }
 
+            if (inventory.CheckIfFull())
+            {
+                Debug.Log("potion made yayyy");
+                RemoveItems(inventory);
+                anim.SetBool("isMaking", true);
+               potionButton.SetActive(true);
+                return;
+            }
+            else
+            {
+                Debug.Log("not ready to use");
+            }
+        }
     }
     private void OnMouseUp()
     {
         isClicked = false;
     }
-   
 }
