@@ -81,7 +81,7 @@ public class Dragon : MonoBehaviour
 
     IEnumerator Attack()
     {
-        
+
         while (dragonState == DragonState.attack)
         {
             if (transform.position.x - playerCharacter.position.x > 0f)
@@ -95,8 +95,8 @@ public class Dragon : MonoBehaviour
 
             animator.SetBool("Attack", true);
             Instantiate(fireball, mouth.position, Quaternion.identity);
-            StopAttack();
             yield return new WaitForSeconds(timeBetweenShoot);
+            StopAttack();
         }
     }
 
