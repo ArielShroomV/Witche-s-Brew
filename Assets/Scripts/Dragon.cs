@@ -76,11 +76,12 @@ public class Dragon : MonoBehaviour
 
     void StopAttack()
     {
-        animator.SetBool("Attack", false);
+        animator.SetBool("IsAttacking", false);
     }
 
     IEnumerator Attack()
     {
+        bool firstAttack = true;
 
         while (dragonState == DragonState.attack)
         {
@@ -93,15 +94,20 @@ public class Dragon : MonoBehaviour
                 transform.rotation = new Quaternion(Quaternion.identity.x, 0, Quaternion.identity.z, 0);
             }
 
-            animator.SetBool("Attack", true);
+            animator.SetBool("IsAttacking", true);
+            if(!firstAttack) animator.SetTrigger("Attack");
+            yield return new WaitForSeconds(0.2f);
             Instantiate(fireball, mouth.position, Quaternion.identity);
-            yield return new WaitForSeconds(timeBetweenShoot);
+            yield return new WaitForSeconds(timeBetweenShoot - 0.2f);
             StopAttack();
+            firstAttack = false;
         }
     }
 
     IEnumerator Patrol()
      {
+        yield return new WaitForSeconds(1);
+
         while (dragonState == DragonState.patrol)
         {
             transform.position = Vector2.MoveTowards(transform.position, positions[index], Time.deltaTime * speed);

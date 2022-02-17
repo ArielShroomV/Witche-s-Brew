@@ -8,6 +8,7 @@ TagManager:
   - BG
   - Fire
   - Platform
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
