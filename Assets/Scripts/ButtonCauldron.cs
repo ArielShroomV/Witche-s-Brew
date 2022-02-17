@@ -11,11 +11,11 @@ public class ButtonCauldron : MonoBehaviour
     public GameObject Cauldron;
     bool isClicked;
     BoxCollider2D boxCollider;
-    
+
 
     void Start()
     {
-       potionButton.SetActive(false);
+        potionButton.SetActive(false);
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
@@ -43,7 +43,7 @@ public class ButtonCauldron : MonoBehaviour
                 Debug.Log("potion made yayyy");
                 RemoveItems(inventory);
                 anim.SetBool("isMaking", true);
-               potionButton.SetActive(true);
+                StartCoroutine(test());
                 return;
             }
             else
@@ -55,5 +55,12 @@ public class ButtonCauldron : MonoBehaviour
     private void OnMouseUp()
     {
         isClicked = false;
+    }
+    IEnumerator test()
+    {
+        yield return new WaitForSeconds(3);
+        Debug.Log("delay done");
+        potionButton.SetActive(true);
+        anim.SetBool("isMaking", false);
     }
 }
