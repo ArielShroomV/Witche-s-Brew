@@ -11,6 +11,9 @@ public enum DragonState
 [RequireComponent(typeof(SpriteRenderer))]
 public class Dragon : MonoBehaviour
 {
+    public int maxHealth = 5;
+    int currentHealth;
+
     public Transform playerCharacter;
 
     [SerializeField] private Animator animator;
@@ -57,6 +60,10 @@ public class Dragon : MonoBehaviour
         StartCoroutine(Patrol());
     }
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
     void Update()
     {
@@ -72,6 +79,7 @@ public class Dragon : MonoBehaviour
         {
             dragonState = DragonState.patrol;
         }
+     
     }
 
     void StopAttack()
@@ -134,5 +142,21 @@ public class Dragon : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        //die animation
+        Debug.Log("dragon died");
+        Destroy(gameObject);
     }
 }

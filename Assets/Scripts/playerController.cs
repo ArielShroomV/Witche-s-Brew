@@ -4,17 +4,22 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 4;
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _renderer;
     public float jumpForce = 6;
-    Animator anim;
-    [SerializeField] int maxHealth = 10;
+    public Animator anim;
+    [SerializeField] int maxHealth = 100;
     [SerializeField] int currentHp;
     public HealthBar healthBar;
     public GameObject player;
+
+    public GameObject Potion;
+
+    public bool canMove = true;
+
     private void Start()
     {
         currentHp = maxHealth;
@@ -22,15 +27,21 @@ public class playerController : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         healthBar.SetMaxHealth(maxHealth);
-
+        canMove = true;
     }
 
     private void Update()
     {
-        var movement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
-        Walk();
-        Jump();
+        if (canMove)
+        {
+
+            var movement = Input.GetAxis("Horizontal");
+            transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
+
+            Walk();
+            Jump();
+        }
+
         Vector3 characterScale = transform.localScale;
         transform.localScale = characterScale;
 
@@ -104,6 +115,7 @@ public class playerController : MonoBehaviour
     {
         if (currentHp <= 0)
         {
+            canMove = false;
             Destroy(gameObject);
         }
     }
