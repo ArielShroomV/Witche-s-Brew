@@ -8,6 +8,7 @@ public class ButtonCauldron : MonoBehaviour
     [SerializeField] GameObject canvasItems;
     Animator anim;
     [SerializeField] GameObject potionButton;
+    [SerializeField] AudioSource brewPotion;
     public GameObject Cauldron;
     bool isClicked;
     BoxCollider2D boxCollider;
@@ -60,6 +61,7 @@ public class ButtonCauldron : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         Debug.Log("delay done");
+        brewPotion.Play();
         potionButton.SetActive(true);
         anim.SetBool("isMaking", false);
     }

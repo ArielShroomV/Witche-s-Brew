@@ -11,6 +11,7 @@ public class AttackPotion : MonoBehaviour
     public LayerMask enemyLayers;
     public int usecounter = 4;
     public GameObject potion;
+    [SerializeField] AudioSource iceAttack;
     public void InitPower()
     {
         if (usecounter > 0)
@@ -32,6 +33,7 @@ public class AttackPotion : MonoBehaviour
     {
         player.canMove = false;
         player.anim.SetTrigger("Attack");
+        iceAttack.Play();
         Attack();
         yield return new WaitForSeconds(0.9f);
         usecounter--;
