@@ -79,7 +79,8 @@ public class Dragon : MonoBehaviour
         {
             dragonState = DragonState.patrol;
         }
-     
+        Die();
+
     }
 
     void StopAttack()
@@ -103,7 +104,7 @@ public class Dragon : MonoBehaviour
             }
 
             animator.SetBool("IsAttacking", true);
-            if(!firstAttack) animator.SetTrigger("Attack");
+            if (!firstAttack) animator.SetTrigger("Attack");
             yield return new WaitForSeconds(0.2f);
             Instantiate(fireball, mouth.position, Quaternion.identity);
             yield return new WaitForSeconds(timeBetweenShoot - 0.2f);
@@ -113,7 +114,7 @@ public class Dragon : MonoBehaviour
     }
 
     IEnumerator Patrol()
-     {
+    {
         yield return new WaitForSeconds(1);
 
         while (dragonState == DragonState.patrol)
@@ -147,16 +148,16 @@ public class Dragon : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        Debug.Log("bruh die");
     }
 
     void Die()
     {
-        //die animation
-        Debug.Log("dragon died");
-        Destroy(gameObject);
+        if (currentHealth <= 0)
+        {
+            //die animation
+            Debug.Log("die bitch");
+            Destroy(gameObject);
+        }
     }
 }

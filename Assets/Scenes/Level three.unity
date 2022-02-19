@@ -9032,7 +9032,7 @@ PrefabInstance:
     - target: {fileID: 5044212084716279685, guid: ce777e016d473ce4da607a59564e5a0c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 754400047}
+      objectReference: {fileID: 0}
     - target: {fileID: 5044212084716279685, guid: ce777e016d473ce4da607a59564e5a0c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: InitPower
@@ -10624,7 +10624,6 @@ GameObject:
   - component: {fileID: 754400045}
   - component: {fileID: 754400043}
   - component: {fileID: 754400046}
-  - component: {fileID: 754400047}
   m_Layer: 0
   m_Name: Witch
   m_TagString: Player
@@ -10750,12 +10749,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 4
   jumpForce: 5
-  anim: {fileID: 0}
+  anim: {fileID: 754400042}
   maxHealth: 10
   currentHp: 0
   healthBar: {fileID: 1026468547}
   player: {fileID: 754400039}
-  Potion: {fileID: 0}
   canMove: 1
 --- !u!50 &754400045
 Rigidbody2D:
@@ -10797,27 +10795,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &754400047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754400039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0759b8055a54b7241b4931ebce635b28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 754400044}
-  attackPoint: {fileID: 270942013}
-  attackDamage: 5
-  attackRange: 1.2
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  usecounter: 4
-  potion: {fileID: 1565123686}
 --- !u!1 &754481450
 GameObject:
   m_ObjectHideFlags: 0
@@ -10868,7 +10845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2417482939308629363, guid: e3f352145947dfa4b80871d6f9e0ed8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.44
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2417482939308629363, guid: e3f352145947dfa4b80871d6f9e0ed8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19171,6 +19148,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983547882973868061, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983547882973868061, guid: 878ef32c5d993964683de561c8526df0, type: 3}
       propertyPath: attackRange
       value: 3
       objectReference: {fileID: 0}
@@ -19242,9 +19223,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dragon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6983547882973868129, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6983547883064566657, guid: 878ef32c5d993964683de561c8526df0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.092
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983547883064566658, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6196651463372427700, guid: 878ef32c5d993964683de561c8526df0, type: 3}
@@ -22209,6 +22198,7 @@ GameObject:
   - component: {fileID: 1628941390}
   - component: {fileID: 1628941389}
   - component: {fileID: 1628941388}
+  - component: {fileID: 1628941391}
   m_Layer: 5
   m_Name: ice power
   m_TagString: Untagged
@@ -22279,7 +22269,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 754400047}
+      - m_Target: {fileID: 1628941391}
         m_TargetAssemblyTypeName: AttackPotion, Assembly-CSharp
         m_MethodName: InitPower
         m_Mode: 1
@@ -22329,6 +22319,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628941386}
   m_CullTransparentMesh: 1
+--- !u!114 &1628941391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628941386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0759b8055a54b7241b4931ebce635b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 754400044}
+  attackPoint: {fileID: 270942013}
+  attackDamage: 5
+  attackRange: 3
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  usecounter: 4
+  potion: {fileID: 1565123686}
 --- !u!1001 &1649903424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22339,6 +22350,10 @@ PrefabInstance:
     - target: {fileID: 6196651463372427700, guid: 878ef32c5d993964683de561c8526df0, type: 3}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983547882973868061, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6983547882973868061, guid: 878ef32c5d993964683de561c8526df0, type: 3}
       propertyPath: attackRange
@@ -22370,7 +22385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6983547882973868062, guid: 878ef32c5d993964683de561c8526df0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9400024
+      value: -11.52
       objectReference: {fileID: 0}
     - target: {fileID: 6983547882973868062, guid: 878ef32c5d993964683de561c8526df0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22412,12 +22427,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dragon
       objectReference: {fileID: 0}
+    - target: {fileID: 6983547882973868129, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6983547883064566657, guid: 878ef32c5d993964683de561c8526df0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.092
       objectReference: {fileID: 0}
+    - target: {fileID: 6983547883064566658, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6196651463372427700, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 878ef32c5d993964683de561c8526df0, type: 3}
 --- !u!1 &1651857372
 GameObject:
@@ -23152,7 +23175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1867175250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dragons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24608,6 +24631,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6983547882973868061, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983547882973868061, guid: 878ef32c5d993964683de561c8526df0, type: 3}
       propertyPath: attackRange
       value: 3
       objectReference: {fileID: 0}
@@ -24679,9 +24706,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dragon (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6983547882973868129, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6983547883064566657, guid: 878ef32c5d993964683de561c8526df0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.092
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983547883064566658, guid: 878ef32c5d993964683de561c8526df0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6196651463372427700, guid: 878ef32c5d993964683de561c8526df0, type: 3}

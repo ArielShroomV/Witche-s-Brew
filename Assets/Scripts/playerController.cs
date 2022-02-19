@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public HealthBar healthBar;
     public GameObject player;
 
-    public GameObject Potion;
+ 
 
     public bool canMove = true;
 

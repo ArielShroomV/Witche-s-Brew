@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6983547882973868063}
   - component: {fileID: 6983547882973868128}
   - component: {fileID: 6983547882973868061}
-  m_Layer: 0
+  - component: {fileID: 2133569542}
+  m_Layer: 8
   m_Name: Dragon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,17 +117,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98ea1699ad48de4fac2edc1c6d2387a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 5
   playerCharacter: {fileID: 0}
   animator: {fileID: 6983547882973868128}
   fireball: {fileID: 3749027920950025141, guid: 0cbbc77788c09104db0dba18a5ada1e5, type: 3}
   mouth: {fileID: 6983547883064566657}
   projectile: {fileID: 3749027920950025141, guid: 0cbbc77788c09104db0dba18a5ada1e5, type: 3}
   positions:
-  - {x: 56, y: -4.773634, z: 0}
-  - {x: 68, y: -4.773634, z: 0}
+  - {x: 7.2326937, y: -4.590858, z: 0}
+  - {x: 5.49, y: -4.590858, z: 0}
   speed: 2
   attackRange: 5
   timeBetweenShoot: 2
+--- !u!61 &2133569542
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983547882973868129}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04545319, y: -0.03994572}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8488629, y: 0.33162475}
+  m_EdgeRadius: 0
 --- !u!1 &6983547883064566658
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6983547883064566657}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
