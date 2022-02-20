@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int currentHp;
     public HealthBar healthBar;
     public GameObject player;
+    [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource hurtSound;
 
- 
 
     public bool canMove = true;
 
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButton("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
+            jumpSound.Play();
             _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
         if (_rigidbody.velocity.y != 0)
@@ -105,6 +107,9 @@ public class PlayerController : MonoBehaviour
     }
     public void TakeDamage(int howmuch)
     {
+        //hurt animation!
+        anim.SetTrigger("Hurt");
+        hurtSound.Play();
         currentHp -= howmuch;
         healthBar.SetHealth(currentHp);
         Debug.Log($"{name} is hurt " + "HP is " + currentHp);
@@ -116,7 +121,10 @@ public class PlayerController : MonoBehaviour
         if (currentHp <= 0)
         {
             canMove = false;
-            Destroy(gameObject);
+            anim.SetTrigger("Dead");
+            
+            //gameObject.SetActive(false);
+            // Destroy(gameObject);
         }
     }
 

@@ -26,6 +26,7 @@ public class Dragon : MonoBehaviour
     [SerializeField] private float attackRange = 3;
     [SerializeField] private float timeBetweenShoot = 1;
 
+    [SerializeField] AudioSource fireSneeze;
     private int index;
     private SpriteRenderer spriteRenderer;
     private DragonState _dragonState;
@@ -107,6 +108,7 @@ public class Dragon : MonoBehaviour
             if (!firstAttack) animator.SetTrigger("Attack");
             yield return new WaitForSeconds(0.2f);
             Instantiate(fireball, mouth.position, Quaternion.identity);
+            fireSneeze.Play();
             yield return new WaitForSeconds(timeBetweenShoot - 0.2f);
             StopAttack();
             firstAttack = false;

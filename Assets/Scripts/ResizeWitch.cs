@@ -7,12 +7,14 @@ public class ResizeWitch : MonoBehaviour
     public ParticleSystem smoke;
     public float scale = .01f;
     public GameObject myPotion;
+    [SerializeField] AudioSource shrinkSound;
 
     public void ScaleWitch()
     {
         if (transform.localScale.x > 1)
         {
             Debug.Log("im small");
+            shrinkSound.Play();
             smoke.Play();
             transform.localScale = transform.localScale - new Vector3(scale, scale);
             myPotion.SetActive(false);
