@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     [SerializeField] AudioSource jumpSound;
     [SerializeField] AudioSource hurtSound;
- 
+
 
     public bool canMove = true;
 
@@ -121,7 +121,10 @@ public class PlayerController : MonoBehaviour
         if (currentHp <= 0)
         {
             canMove = false;
-            Destroy(gameObject);
+            anim.SetTrigger("Dead");
+            
+            //gameObject.SetActive(false);
+            // Destroy(gameObject);
         }
     }
 
