@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     [SerializeField] AudioSource jumpSound;
     [SerializeField] AudioSource hurtSound;
+    [SerializeField] AudioSource runSound;
 
     public bool canMove = true;
 
@@ -90,16 +91,32 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxis("Horizontal") < 0)
         {
             anim.SetBool("isWalking", true && !isJumping);
-            _renderer.flipX = true;
+            _renderer.flipX = true; 
+
+            if (!runSound.isPlaying)
+            {
+                runSound.Play();
+            }
         }
         else if (Input.GetAxis("Horizontal") > 0)
         {
             anim.SetBool("isWalking", true && !isJumping);
             _renderer.flipX = false;
+
+            if (!runSound.isPlaying)
+            {
+                runSound.Play();
+            }
+          
         }
         else
         {
             anim.SetBool("isWalking", false);
+            runSound.Stop();
+        }
+        if (isJumping)
+        {
+            runSound.Stop();
         }
     }
     public void TakeDamage(int howmuch)
@@ -121,7 +138,6 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(wait());
         }
     }
-
     IEnumerator wait()
     {
         yield return new WaitForSeconds(1);
