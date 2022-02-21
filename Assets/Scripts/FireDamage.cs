@@ -10,7 +10,7 @@ public class FireDamage : MonoBehaviour
         if (collision.tag == "Player")
         {
             PlayerController player = collision.GetComponent<PlayerController>();
-            ApplyDamage(player, 2);
+            ApplyDamage(player, 1);
             
         }
     }

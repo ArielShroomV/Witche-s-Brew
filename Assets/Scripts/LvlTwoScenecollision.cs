@@ -8,5 +8,6 @@ public class LvlTwoScenecollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         SceneManager.LoadScene("Level three");
+        Destroy(gameObject);
     }
 }

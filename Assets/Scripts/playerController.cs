@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource jumpSound;
     [SerializeField] AudioSource hurtSound;
 
-
     public bool canMove = true;
 
     private void Start()
@@ -30,12 +29,10 @@ public class PlayerController : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         canMove = true;
     }
-
     private void Update()
     {
         if (canMove)
         {
-
             var movement = Input.GetAxis("Horizontal");
             transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
 
@@ -107,7 +104,6 @@ public class PlayerController : MonoBehaviour
     }
     public void TakeDamage(int howmuch)
     {
-        //hurt animation!
         anim.SetTrigger("Hurt");
         hurtSound.Play();
         currentHp -= howmuch;
@@ -122,10 +118,15 @@ public class PlayerController : MonoBehaviour
         {
             canMove = false;
             anim.SetTrigger("Dead");
-            
-            //gameObject.SetActive(false);
-            // Destroy(gameObject);
+            StartCoroutine(wait());
         }
     }
 
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log("waaaitiiing");
+        Destroy(gameObject);
+
+    }
 }

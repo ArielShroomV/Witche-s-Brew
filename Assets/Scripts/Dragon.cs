@@ -92,22 +92,28 @@ public class Dragon : MonoBehaviour
     IEnumerator Attack()
     {
         bool firstAttack = true;
+        Quaternion currentLookDirection = Quaternion.identity;
 
         while (dragonState == DragonState.attack)
         {
             if (transform.position.x - playerCharacter.position.x > 0f)
             {
-                transform.rotation = new Quaternion(Quaternion.identity.x, -180, Quaternion.identity.z, 0);
+                currentLookDirection = new Quaternion(Quaternion.identity.x, -180, Quaternion.identity.z, 0);
+                transform.rotation = currentLookDirection;
             }
             else
             {
-                transform.rotation = new Quaternion(Quaternion.identity.x, 0, Quaternion.identity.z, 0);
+                currentLookDirection = new Quaternion(Quaternion.identity.x, 0, Quaternion.identity.z, 0);
+                transform.rotation = currentLookDirection;
             }
 
             animator.SetBool("IsAttacking", true);
             if (!firstAttack) animator.SetTrigger("Attack");
             yield return new WaitForSeconds(0.2f);
-            Instantiate(fireball, mouth.position, Quaternion.identity);
+
+            GameObject newFireball = Instantiate(fireball, mouth.position, Quaternion.identity);
+            newFireball.transform.rotation = currentLookDirection;
+
             fireSneeze.Play();
             yield return new WaitForSeconds(timeBetweenShoot - 0.2f);
             StopAttack();
@@ -150,7 +156,6 @@ public class Dragon : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("bruh die");
     }
 
     void Die()

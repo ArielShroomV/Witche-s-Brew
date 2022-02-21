@@ -28164,6 +28164,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire potion
       objectReference: {fileID: 0}
+    - target: {fileID: 4133675940883791861, guid: 0368c9af8e78f954b82ee09addceddfc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 820
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133675940883791861, guid: 0368c9af8e78f954b82ee09addceddfc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 227
+      objectReference: {fileID: 0}
     - target: {fileID: 4133675940883791863, guid: 0368c9af8e78f954b82ee09addceddfc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

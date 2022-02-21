@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AttackPotion : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class AttackPotion : MonoBehaviour
     public int usecounter = 4;
     public GameObject potion;
     [SerializeField] AudioSource iceAttack;
+
+    public TextMeshProUGUI countText;
+    private int count;
+
+    private void Awake()
+    {
+        count = 4;
+    }
     public void InitPower()
     {
         if (usecounter > 0)
@@ -35,6 +44,7 @@ public class AttackPotion : MonoBehaviour
         player.anim.SetTrigger("Attack");
         iceAttack.Play();
         Attack();
+        SetCountText();
         yield return new WaitForSeconds(0.9f);
         usecounter--;
         player.canMove = true;
@@ -42,6 +52,7 @@ public class AttackPotion : MonoBehaviour
         if (usecounter == 0)
         {
             potion.SetActive(false);
+            countText.gameObject.SetActive(false);
         }
     }
     private void OnDrawGizmosSelected()
@@ -51,5 +62,15 @@ public class AttackPotion : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+    void SetCountText()
+    {
+        count = count - 1;
+        countText.text = count.ToString() + "";
+
+        if (count <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
