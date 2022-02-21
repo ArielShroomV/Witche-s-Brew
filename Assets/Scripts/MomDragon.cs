@@ -2,14 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DragonState
-{
-    patrol,
-    attack
-}
-
 [RequireComponent(typeof(SpriteRenderer))]
-public class Dragon : MonoBehaviour
+public class MomDragon : MonoBehaviour
 {
     public int maxHealth = 5;
     int currentHealth;
@@ -72,18 +66,18 @@ public class Dragon : MonoBehaviour
         if (playerCharacter != null)
         {
 
-        if (Vector2.Distance(transform.position, playerCharacter.position) < attackRange)
-        {
-            if (dragonState != DragonState.attack)
+            if (Vector2.Distance(transform.position, playerCharacter.position) < attackRange)
             {
-                dragonState = DragonState.attack;
+                if (dragonState != DragonState.attack)
+                {
+                    dragonState = DragonState.attack;
+                }
             }
-        }
-        else if (dragonState != DragonState.patrol)
-        {
-            dragonState = DragonState.patrol;
-        }
-        Die();
+            else if (dragonState != DragonState.patrol)
+            {
+                dragonState = DragonState.patrol;
+            }
+            Die();
         }
 
     }
@@ -100,17 +94,17 @@ public class Dragon : MonoBehaviour
 
         while (dragonState == DragonState.attack)
         {
-            if(playerCharacter != null)
-            if (transform.position.x - playerCharacter.position.x > 0f)
-            {
-                currentLookDirection = new Quaternion(Quaternion.identity.x, -180, Quaternion.identity.z, 0);
-                transform.rotation = currentLookDirection;
-            }
-            else
-            {
-                currentLookDirection = new Quaternion(Quaternion.identity.x, 0, Quaternion.identity.z, 0);
-                transform.rotation = currentLookDirection;
-            }
+            if (playerCharacter != null)
+                if (transform.position.x - playerCharacter.position.x > 0f)
+                {
+                    currentLookDirection = new Quaternion(Quaternion.identity.x, -180, Quaternion.identity.z, 0);
+                    transform.rotation = currentLookDirection;
+                }
+                else
+                {
+                    currentLookDirection = new Quaternion(Quaternion.identity.x, 0, Quaternion.identity.z, 0);
+                    transform.rotation = currentLookDirection;
+                }
 
             animator.SetBool("IsAttacking", true);
             if (!firstAttack) animator.SetTrigger("Attack");
@@ -160,6 +154,7 @@ public class Dragon : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        animator.SetTrigger("Hurt");
         currentHealth -= damage;
     }
 
@@ -167,9 +162,15 @@ public class Dragon : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            //die animation
-            Debug.Log("die bitch");
-            Destroy(gameObject);
+            animator.SetTrigger("Die");
+            StartCoroutine(wait());
         }
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+
     }
 }
