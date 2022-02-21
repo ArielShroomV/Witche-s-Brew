@@ -5,13 +5,12 @@ using UnityEngine;
 public class CatAi : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Animator anim;
+    public Animator anim;
     public float speed;
     private Transform target;
     public float stoppingDistance;
-    Vector3 direction;
-    private Vector2 movement;
-    public bool shouldRotate;
+    Vector2 movement;
+
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -22,23 +21,20 @@ public class CatAi : MonoBehaviour
 
     void Update()
     {
+       
+        Follow();
+
+
+    }
+    void Follow()
+    {
         anim.SetBool("isWalking", true);
+        anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
+        
         if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        direction = target.position - transform.position;
-        //float angle = Mathf.Atan(direction.x, direction.y) * Mathf.Rad2Deg;
-        //direction.normalized;
-        //movement = direction;
-            if (shouldRotate)
-        {
-            anim.SetFloat("X", direction.x);
-            anim.SetFloat("Y", direction.y);
-        }
-    }
-    private void FixedUpdate()
-    {
-        
     }
 }

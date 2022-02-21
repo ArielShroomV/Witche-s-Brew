@@ -1525,7 +1525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &41510876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,6 +1771,11 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.120809585}
   serializedVersion: 2
   m_Radius: 0.29193926
+--- !u!95 &637872046 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7397638955720775488, guid: 45cb13715c51c5a4da17df4fd2943185, type: 3}
+  m_PrefabInstance: {fileID: 6958885141564763075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &637872049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,14 +1783,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637872044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3921757b19fc0e4bafaf65394d298eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 637872046}
   speed: 4
   stoppingDistance: 3
-  shouldRotate: 0
 --- !u!50 &637872050
 Rigidbody2D:
   serializedVersion: 4
@@ -6378,7 +6383,7 @@ MonoBehaviour:
     She grabbed a book of potions, sat by the warm fire, and started to mark the
     ingredients she will need to collect tomorrow. \nShe was so happy to be done
     with this day but she had this strange feeling. Something in her wanted tomorrow
-    to be just as adventures as today. She feels invincible! Maybe she\u2019ll go
+    to be just as adventurous as today. She feels invincible! Maybe she\u2019ll go
     back there tomorrow. \noh, what was she thinking? Must be some side effects from
     one of today\u2019s potions.\r\nBetter go to bed\u2026\r\nShe went to sleep and
     dreamed of sneezing dragons and lava rivers. Maybe tomorrow\u2026\r\n\r\n"
