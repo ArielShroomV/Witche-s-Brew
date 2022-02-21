@@ -12,8 +12,9 @@ public class SceneCollision : MonoBehaviour
       if  (portalColl != null)
         {
             portalColl.Play();
+            DontDestroyOnLoad(portalColl);
         }
-        DontDestroyOnLoad(portalColl);
+        
         SceneManager.LoadScene(x);
     }
 }
