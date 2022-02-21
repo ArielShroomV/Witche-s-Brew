@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class PlayerController : MonoBehaviour
+public class playerController : MonoBehaviour
 {
     public float movementSpeed = 4;
     private Rigidbody2D _rigidbody;

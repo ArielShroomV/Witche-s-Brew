@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
         }
         if (collision.tag == "Player")
         {
-            PlayerController player = collision.GetComponent<PlayerController>();
+            playerController player = collision.GetComponent<playerController>();
             ApplyDamage(player, 1);
 
         }
@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
         Debug.Log($"{name} is hurt " + "HP is " + currentHp);
 
     }
-    public void ApplyDamage(PlayerController player, int howmuch)
+    public void ApplyDamage(playerController player, int howmuch)
     {
         player.TakeDamage(howmuch);
 

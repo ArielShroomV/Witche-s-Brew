@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        target = new Vector3(FindObjectOfType<PlayerController>().transform.position.x, transform.position.y, 0);
+        target = new Vector3(FindObjectOfType<playerController>().transform.position.x, transform.position.y, 0);
     }
 
     void Update()
