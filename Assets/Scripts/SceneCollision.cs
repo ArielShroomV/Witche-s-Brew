@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class SceneCollision : MonoBehaviour
 {
     [SerializeField] AudioSource portalColl;
+    [SerializeField] int x;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        portalColl.Play(); ;
+      if  (portalColl != null)
+        {
+            portalColl.Play();
+        }
         DontDestroyOnLoad(portalColl);
-        SceneManager.LoadScene("Level two");
+        SceneManager.LoadScene(x);
     }
 }

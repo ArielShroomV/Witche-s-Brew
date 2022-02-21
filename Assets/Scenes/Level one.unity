@@ -14112,6 +14112,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1336908872, guid: 28bd6b1949413044885adb5154e6e23d, type: 3}
+      propertyPath: x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9207878923627084327, guid: 28bd6b1949413044885adb5154e6e23d, type: 3}
       propertyPath: m_Name
       value: ' Purple Portal'
