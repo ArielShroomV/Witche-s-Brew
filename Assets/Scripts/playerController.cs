@@ -18,9 +18,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource jumpSound;
     [SerializeField] AudioSource hurtSound;
     [SerializeField] AudioSource runSound;
-
+    GameObject GameOverCanvas;
     public bool canMove = true;
-
+    void Awake()
+    {
+        GameOverCanvas = FindObjectOfType<RetryLvl>().gameObject;
+    }
     private void Start()
     {
         currentHp = maxHealth;
@@ -136,12 +139,14 @@ public class PlayerController : MonoBehaviour
             canMove = false;
             anim.SetTrigger("Dead");
             StartCoroutine(wait());
+            
         }
     }
     IEnumerator wait()
     {
         yield return new WaitForSeconds(1);
         Debug.Log("waaaitiiing");
+        GameOverCanvas.SetActive(true);
         Destroy(gameObject);
 
     }
