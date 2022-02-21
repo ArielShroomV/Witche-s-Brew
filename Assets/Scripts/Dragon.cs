@@ -69,6 +69,9 @@ public class Dragon : MonoBehaviour
     void Update()
     {
         //check if player is in range
+        if (playerCharacter != null)
+        {
+
         if (Vector2.Distance(transform.position, playerCharacter.position) < attackRange)
         {
             if (dragonState != DragonState.attack)
@@ -81,6 +84,7 @@ public class Dragon : MonoBehaviour
             dragonState = DragonState.patrol;
         }
         Die();
+        }
 
     }
 

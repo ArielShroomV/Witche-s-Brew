@@ -5,7 +5,7 @@ using TMPro;
 
 public class AttackPotion : MonoBehaviour
 {
-    [SerializeField] PlayerController player;
+    [SerializeField] playerController player;
     public Transform attackPoint;
     public int attackDamage = 5;
     public float attackRange = 2f;
