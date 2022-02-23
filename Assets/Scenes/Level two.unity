@@ -28951,6 +28951,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1336908872, guid: 28bd6b1949413044885adb5154e6e23d, type: 3}
+      propertyPath: portal
+      value: 
+      objectReference: {fileID: 1784699819}
+    - target: {fileID: 1336908872, guid: 28bd6b1949413044885adb5154e6e23d, type: 3}
       propertyPath: portalUse
       value: 
       objectReference: {fileID: 8300000, guid: a03d54ee7482a8e41a7fa97244f5c113, type: 3}
