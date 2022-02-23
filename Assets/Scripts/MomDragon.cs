@@ -154,7 +154,7 @@ public class MomDragon : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        animator.SetTrigger("Hurt");
+     //   animator.SetTrigger("Hurt");
         currentHealth -= damage;
     }
 
@@ -169,7 +169,7 @@ public class MomDragon : MonoBehaviour
 
     IEnumerator wait()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
 
     }

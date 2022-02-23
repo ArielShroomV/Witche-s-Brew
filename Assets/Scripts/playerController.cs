@@ -20,8 +20,10 @@ public class playerController : MonoBehaviour
     [SerializeField] AudioSource runSound;
     GameObject GameOverCanvas;
     public bool canMove = true;
+
     void Awake()
     {
+        if (FindObjectOfType<RetryLvl>() != null)
         GameOverCanvas = FindObjectOfType<RetryLvl>().gameObject;
     }
     private void Start()
@@ -94,7 +96,7 @@ public class playerController : MonoBehaviour
         if (Input.GetAxis("Horizontal") < 0)
         {
             anim.SetBool("isWalking", true && !isJumping);
-            _renderer.flipX = true; 
+            _renderer.flipX = true;
 
             if (!runSound.isPlaying)
             {
@@ -110,7 +112,7 @@ public class playerController : MonoBehaviour
             {
                 runSound.Play();
             }
-          
+
         }
         else
         {
@@ -139,15 +141,15 @@ public class playerController : MonoBehaviour
             canMove = false;
             anim.SetTrigger("Dead");
             StartCoroutine(wait());
-            
+
         }
     }
     IEnumerator wait()
     {
         yield return new WaitForSeconds(1);
-        Debug.Log("waaaitiiing");
-        GameOverCanvas.SetActive(true);
+        if (GameOverCanvas != null)
+            GameOverCanvas.SetActive(true);
         Destroy(gameObject);
 
     }
-}
+ }

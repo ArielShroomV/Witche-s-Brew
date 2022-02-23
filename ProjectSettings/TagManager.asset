@@ -9,6 +9,7 @@ TagManager:
   - Fire
   - Platform
   - PlayerAttack
+  - 'Portal '
   layers:
   - Default
   - TransparentFX

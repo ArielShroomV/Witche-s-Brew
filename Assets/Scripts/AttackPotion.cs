@@ -19,15 +19,16 @@ public class AttackPotion : MonoBehaviour
 
     private void Awake()
     {
-        count = 4;
+        count = 5;
     }
     public void InitPower()
     {
-        if (usecounter > 0)
+        if (usecounter >= 0)
         {
             potion.SetActive(true);
             StartCoroutine(wait());
-        }     
+
+        }
     }
     public void Attack()
     {
@@ -44,13 +45,14 @@ public class AttackPotion : MonoBehaviour
         player.anim.SetTrigger("Attack");
         iceAttack.Play();
         Attack();
-        SetCountText();
         yield return new WaitForSeconds(0.9f);
-        usecounter--;
+        SetCountText();
         player.canMove = true;
+        usecounter--;
 
         if (usecounter == 0)
         {
+
             potion.SetActive(false);
             countText.gameObject.SetActive(false);
         }
@@ -71,6 +73,7 @@ public class AttackPotion : MonoBehaviour
         if (count <= 0)
         {
             Destroy(gameObject);
+            player.canMove = true;
         }
     }
 }

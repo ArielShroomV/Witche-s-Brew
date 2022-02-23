@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerTheEnd : MonoBehaviour
 {
+    [SerializeField] AudioSource runSound;
     private SpriteRenderer _renderer;
     public Animator anim;
     public int Speed = 5;
@@ -30,11 +31,24 @@ public class playerTheEnd : MonoBehaviour
         {
             anim.SetBool("isWalking", true);
             _renderer.flipX = true;
+            if (!runSound.isPlaying)
+            {
+                runSound.Play();
+            }
         }
         else if (Input.GetAxis("Horizontal") > 0)
         {
             anim.SetBool("isWalking", true);
             _renderer.flipX = false;
+            if (!runSound.isPlaying)
+            {
+                runSound.Play();
+            }
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+            runSound.Stop();
         }
     }
 

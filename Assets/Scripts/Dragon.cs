@@ -167,8 +167,6 @@ public class Dragon : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            //die animation
-            Debug.Log("die bitch");
             Destroy(gameObject);
         }
     }
