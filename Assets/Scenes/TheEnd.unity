@@ -4849,6 +4849,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -7609,6 +7610,10 @@ PrefabInstance:
     - target: {fileID: 1044834409116121854, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044834409116121854, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
+      propertyPath: movementSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1044834409116121855, guid: a5e6b43028b033049b8bf83a4a8fddc9, type: 3}
       propertyPath: m_GravityScale

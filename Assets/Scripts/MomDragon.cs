@@ -154,7 +154,7 @@ public class MomDragon : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-     //   animator.SetTrigger("Hurt");
+      animator.SetTrigger("Hurt");
         currentHealth -= damage;
     }
 
