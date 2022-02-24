@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneCollision : MonoBehaviour
 {
     [SerializeField] AudioSource portalColl;
-    [SerializeField] int x;
     public static SceneCollision instanse;
 
     private void Awake()
@@ -19,9 +18,7 @@ public class SceneCollision : MonoBehaviour
         {
             instanse = this;
         }
-
         DontDestroyOnLoad(this.gameObject);
-
     }
 
     public IEnumerator endcorotine()
@@ -31,8 +28,13 @@ public class SceneCollision : MonoBehaviour
         {
             portalColl.Play();
         }
+        if (SceneManager.GetActiveScene().buildIndex + 1 <= 5)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+            SceneManager.LoadScene(0);
 
-        SceneManager.LoadScene(x);
         yield return null;
     }
 }
