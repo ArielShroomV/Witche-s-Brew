@@ -8,6 +8,15 @@ public class ResizeWitch : MonoBehaviour
     public float scale = .01f;
     public GameObject myPotion;
     [SerializeField] AudioSource shrinkSound;
+    public GameObject potion;
+
+    private void Update()
+    {
+        if (potion.activeInHierarchy)
+        {
+            Potion();
+        }
+    }
 
     public void ScaleWitch()
     {
@@ -18,6 +27,13 @@ public class ResizeWitch : MonoBehaviour
             smoke.Play();
             transform.localScale = transform.localScale - new Vector3(scale, scale);
             myPotion.SetActive(false);
+        }
+    }
+    public void Potion()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ScaleWitch();
         }
     }
 }

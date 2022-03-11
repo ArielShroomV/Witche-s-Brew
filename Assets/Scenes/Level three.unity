@@ -9243,7 +9243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalColl: {fileID: 431908086}
-  x: 5
 --- !u!82 &431908086
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21960,7 +21959,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628941386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -22069,6 +22068,7 @@ MonoBehaviour:
   usecounter: 5
   potion: {fileID: 1565123686}
   iceAttack: {fileID: 1628941392}
+  attackpotion: {fileID: 1565123686}
   countText: {fileID: 1873189072}
 --- !u!82 &1628941392
 AudioSource:

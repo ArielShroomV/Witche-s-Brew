@@ -4963,6 +4963,10 @@ PrefabInstance:
       value: 227
       objectReference: {fileID: 0}
     - target: {fileID: 4133675940883791863, guid: 0368c9af8e78f954b82ee09addceddfc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133675940883791863, guid: 0368c9af8e78f954b82ee09addceddfc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 754400040}
@@ -4970,7 +4974,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ScaleWitch
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4133675940883791863, guid: 0368c9af8e78f954b82ee09addceddfc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0368c9af8e78f954b82ee09addceddfc, type: 3}
 --- !u!1 &651997936
 GameObject:
@@ -12953,6 +12958,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 754400040, guid: 05f18b9300f3fc5458d597e56ac8e089, type: 3}
+      propertyPath: potion
+      value: 
+      objectReference: {fileID: 781669705}
     - target: {fileID: 754400040, guid: 05f18b9300f3fc5458d597e56ac8e089, type: 3}
       propertyPath: myPotion
       value: 

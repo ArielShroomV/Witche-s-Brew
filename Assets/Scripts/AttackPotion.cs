@@ -13,6 +13,7 @@ public class AttackPotion : MonoBehaviour
     public int usecounter = 4;
     public GameObject potion;
     [SerializeField] AudioSource iceAttack;
+    public GameObject attackpotion;
 
     public TextMeshProUGUI countText;
     private int count;
@@ -20,6 +21,21 @@ public class AttackPotion : MonoBehaviour
     private void Awake()
     {
         count = 5;
+    }
+    private void Update()
+    {
+        if (attackpotion.activeInHierarchy)
+        {
+            Potion();
+        }
+
+    }
+    public void Potion()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            InitPower();
+        }
     }
     public void InitPower()
     {

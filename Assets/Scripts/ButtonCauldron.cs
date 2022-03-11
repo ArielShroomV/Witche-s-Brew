@@ -20,6 +20,11 @@ public class ButtonCauldron : MonoBehaviour
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
+    private void Update()
+    {
+        CauldronMake();
+        
+    }
 
     public void RemoveItems(Inventory inventory)
     {
@@ -29,14 +34,10 @@ public class ButtonCauldron : MonoBehaviour
             Destroy(item);
         }
     }
-    private void OnMouseDown()
+    public void CauldronMake()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Vector3 mousePos;
-            mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
             isClicked = true;
 
             if (inventory.CheckIfFull())
@@ -52,10 +53,10 @@ public class ButtonCauldron : MonoBehaviour
                 Debug.Log("not ready to use");
             }
         }
-    }
-    private void OnMouseUp()
-    {
-        isClicked = false;
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            isClicked = false;
+        }
     }
     IEnumerator test()
     {
