@@ -10,7 +10,7 @@ public class ButtonCauldron : MonoBehaviour
     [SerializeField] GameObject potionButton;
     [SerializeField] AudioSource brewPotion;
     public GameObject Cauldron;
-    bool isClicked;
+    bool isClicked = false;
     BoxCollider2D boxCollider;
 
 
